@@ -18,6 +18,9 @@ class ConfiguracionModel extends Model
 
     // Dates
     protected $useTimestamps =  true;
+    protected $createdField = '';
+    protected $updatedField = '';
+    protected $deletedField = '';
 
 
     // Validation

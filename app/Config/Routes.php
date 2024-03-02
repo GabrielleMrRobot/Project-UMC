@@ -25,7 +25,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -40,6 +40,10 @@ $routes->post('usuarios/valida', 'Usuarios::valida');
 $routes->get('usuarios/logout', 'Usuarios::logout');
 $routes->get('usuarios/cambia_password', 'Usuarios::cambia_password');
 $routes->post('usuarios/actualizar_password', 'Usuarios::actualizar_password');
+$routes->get('inicio', 'Inicio::index');
+$routes->get('index', 'Inicio::index');
+$routes->get('productos/index', 'Productos::index');
+$routes->get('ventas/index', 'Ventas::index');
 $routes->get('unidades', 'Unidades::index');
 $routes->get('unidades/nuevo', 'Unidades::nuevo');
 $routes->post('unidades/insertar', 'Unidades::insertar');
@@ -64,6 +68,7 @@ $routes->post('productos/actualizar', 'productos::actualizar');
 $routes->get('/productos/eliminar/(:num)', 'productos::eliminar/$1');
 $routes->get('productos/eliminados', 'productos::eliminados');
 $routes->get('/productos/reingresar/(:num)', 'productos::reingresar/$1');
+$routes->get('productos/buscarPorCodigo/(:any)', 'Productos::buscarPorCodigo/$1');
 $routes->get('clientes', 'Clientes::index');
 $routes->get('clientes/nuevo', 'clientes::nuevo');
 $routes->post('clientes/insertar', 'clientes::insertar');
@@ -82,6 +87,35 @@ $routes->post('usuarios/actualizar', 'usuarios::actualizar');
 $routes->get('/usuarios/eliminar/(:num)', 'usuarios::eliminar/$1');
 $routes->get('usuarios/eliminados', 'usuarios::eliminados');
 $routes->get('/usuarios/reingresar/(:num)', 'usuarios::reingresar/$1');
+$routes->get('compras', 'Ventas::index');
+$routes->get('compras/nuevo', 'compras::nuevo');
+$routes->post('compras/insertar', 'compras::insertar');
+$routes->get('productos/buscarPorCodigo/(:any)', 'Productos::buscarPorCodigo/$1');
+$routes->post('temporalcompra/inserta/(:num)/(:num)/(:num)', 'TemporalCompra::inserta/$1/$2/$3');
+$routes->post('TemporalCompra/inserta/(:num)/(:num)/(:any)', 'TemporalCompra::inserta/$1/$2/$3');
+$routes->get('TemporalCompra/inserta/(:num)/(:num)/(:segment)', 'TemporalCompra::inserta/$1/$2/$3');
+$routes->get('TemporalCompra/eliminar/(:segment)/(:segment)', 'TemporalCompra::eliminar/$1/$2');
+$routes->get('temporalcompra/cargaProductos/(:num)', 'TemporalCompra::cargaProductos/$1');
+$routes->get('temporalcompra/totalProductos/(:num)', 'TemporalCompra::totalProductos/$1');
+$routes->post('guarda', 'Compras::guarda');
+$routes->post('compras/guarda', 'Compras::guarda');
+$routes->get('ventas', 'Ventas::index');
+$routes->get('ventas/venta', 'Ventas::venta');
+$routes->get('ventas/nuevo', 'ventas::nuevo');
+$routes->post('ventas/insertar', 'ventas::insertar');
+$routes->get('productos/buscarPorCodigo/(:any)', 'Productos::buscarPorCodigo/$1');
+$routes->post('Ventas/inserta/(:num)/(:num)/(:num)', 'Ventas::inserta/$1/$2/$3');
+$routes->post('Ventas/inserta/(:num)/(:num)/(:any)', 'Ventas::inserta/$1/$2/$3');
+$routes->get('Ventas/inserta/(:num)/(:num)/(:segment)', 'Ventas::inserta/$1/$2/$3');
+$routes->get('Ventas/eliminar/(:segment)/(:segment)', 'Ventas::eliminar/$1/$2');
+$routes->get('Ventas/cargaProductos/(:num)', 'Ventas::cargaProductos/$1');
+$routes->get('Ventas/totalProductos/(:num)', 'Ventas::totalProductos/$1');
+$routes->post('guarda', 'Ventas::guarda');
+$routes->post('ventas/guarda', 'Ventas::guarda');
+$routes->get('productos/mostrarMinimos', 'Productos::mostrarMinimos');
+$routes->get('productos/generaMinimosPdf', 'Productos::generaMinimosPdf');
+$routes->get('compras/muestraCompraPdf/(:num)', 'Compras::muestraCompraPdf/$1');
+$routes->get('compras/generaCompraPdf/(:num)', 'Compras::generaCompraPdf/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -9,7 +9,7 @@
                         </div>
                         <?php } ?>
 
-                        <form method="POST" action="<?php echo base_url(); ?>/configuracion/actualizar"
+                        <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>/configuracion/actualizar"
                         autocomplete="off">
                         <?php csrf_field(); ?>
 
@@ -67,7 +67,7 @@
                                 </div>
 
                                 <div class="col-12 col-sm-6">
-                                    <label>Ticket leyenda</label>
+                                    <label>Leyenda del ticket</label>
                                     <textarea class="form-control" id="ticket_leyenda" name="ticket_leyenda" required><?php echo $leyenda['valor']; ?></textarea>
 
 
@@ -75,6 +75,18 @@
                             
                             </div>
                         
+                         </div>
+                         
+                         <div class= "form-group">
+                            <div class="row">
+                            <div class="col-12 col-sm-6">
+                            <label>Logotipo</label><br />
+                            <img src="<?php echo base_url() . '/images/logotipo.png'; ?>" class="img-responsive" width="200" />
+
+                            <input type="file" id="tienda_logo" name="tienda_logo" accept="image/png" />
+                            <p class="text-danger">Cargar imagen en formato png de 150x150 pixeles</p>
+                            </div>
+                            </div>
                          </div>
 
                             <a href = "<?php echo base_url(); ?>/unidades" class="btn btn-primary">Regresar</a>

@@ -15,12 +15,18 @@
         <title>Sistema de ventas</title>
         <link href="<?php echo base_url(); ?>/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url(); ?>/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link href="<?php echo base_url(); ?>/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
         <script src="<?php echo base_url(); ?>/js/all.min.js"></script>
+        <script src="<?php echo base_url(); ?>/js/jquery-ui/external/jquery/jquery.js"></script>
+        <script src="<?php echo base_url(); ?>/js/jquery-ui/jquery-ui.min.js"></script>
+        <script src="<?php echo base_url(); ?>/js/Chart.min.js"></script>
+
+
     </head>
 
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Sistema de facturacion</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>/inicio">Sistema de facturacion</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
             <!-- Navbar-->
@@ -30,7 +36,7 @@
                 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="<?php echo base_url(); ?>/usuarios/cambia_password">Cambiar contraseña</a>
-                    <a class="dropdown-item" href="#!">Activity Log</a>
+                    <a class="dropdown-item" href="#!"></a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="<?php echo base_url(); ?>/usuarios/logout">Cerrar Sesión</a>
                 </div>
@@ -58,6 +64,36 @@
                             <a class="nav-link" href="<?php echo base_url(); ?>/clientes"><div class="sb-nav-link-icon">
                                 <i class="fas fa-users"></i></div>Clientes</a>
 
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menuCompras" aria-expanded="false" aria-controls="menuCompras">
+                                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                Compras
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="menuCompras" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="<?php echo base_url(); ?>/compras/nuevo">Nueva compra</a>
+                                    <!--<a class="nav-link" href="<//?php echo base_url(); ?>/compras">Compras</a>-->
+                                </nav>
+                            </div>
+                            
+                            <a class="nav-link" href="<?php echo base_url(); ?>/ventas/venta"><div class="sb-nav-link-icon">
+                                <i class="fas fa-cash-register"></i></div>Caja</a>
+                                
+                                <a class="nav-link" href="<?php echo base_url(); ?>/ventas"><div class="sb-nav-link-icon">
+                                <i class="fas fa-shopping-cart"></i></div>Ventas</a>
+
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menuReportes" aria-expanded="false" aria-controls="menuReportes">
+                                <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                                Reportes
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="menuReportes" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="<?php echo base_url(); ?>/productos/mostrarMinimos">Reportes Minimo</a>
+                                   
+                                </nav>
+</div>
+
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#subAdministracion" aria-expanded="false" aria-controls="subAdministracion">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
                                 Administración
@@ -67,6 +103,8 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="<?php echo base_url(); ?>/configuracion">Configuración</a>
                                     <a class="nav-link" href="<?php echo base_url(); ?>/usuarios">Usuarios</a>
+                                     <!--<a class="nav-link" href="<//?php echo base_url(); ?>/roles">Roles</a>-->
+                                    <a class="nav-link" href="<?php echo base_url(); ?>/cajas">Cajas</a>
 
 
                                 </nav>
@@ -76,3 +114,6 @@
                     </div>
                 </nav>
             </div>
+
+
+ <!--<a class="nav-link" href="<//?php echo base_url(); ?>/roles">Roles</a>-->
